@@ -1,0 +1,107 @@
+<?php
+/**
+ * @file
+ * An example of calling defualt Node and Block via Module
+ */
+
+/**
+ * Implements hook_field_info().
+ *
+ * Provides the description of the field.
+ */
+function contactinfo_info() {
+  return array(
+    // We name our field as the associative name of the array.
+    'contactinfo_basic_action' => array(
+      'label' => t('sandip testing'),
+    ),
+  );
+}
+
+function contactinfo_menu(){
+    
+    // Will be only used while we are dealing with custom form
+   /* $items['sandip/sandiptest'] = array(
+    'title'           => 'Sandip Example',
+    'description'     => 'Provides a basic information page.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('contactinfo_getform'),  
+    'access callback' => TRUE,
+     'type' => MENU_NORMAL_ITEM,   
+  );
+    */
+    
+    // Will be only used while we are dealing with ready made node form
+    $items['contactinfo/test'] = array(
+    'title' => t('Contact Info Form'),
+    'page callback' => 'node_form_contactinfo',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM,
+    'file path' => drupal_get_path('module', 'node'),
+    'file' => 'node.pages.inc',
+  ); 
+  return $items;
+    
+}
+
+/*
+ * Creating Sample Block
+ */
+function contactinfo_block_info(){
+   
+  $blocks['contactinfo_block'] = array(
+    'info' => t('Create contactinfo block'),
+    'status' => TRUE,
+    'region' => 'sidebar_first',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+  );
+  return $blocks;
+}
+
+/*
+ * Creating Sample Block view
+ */
+function contactinfo_block_view($delta = '') {
+  //  echo $delta;
+  switch ($delta) {
+    case 'contactinfo_block':
+      module_load_include('inc', 'node', 'node.pages');
+      $block['subject'] = t('Quick Contact');
+      $block['content'] = node_form_contactinfo();
+      break;
+  }
+  return $block;
+}
+
+/*
+ * Function will display node on page as well as block
+ */
+function node_form_contactinfo(){
+
+    //$nval = node_load(5);
+    global $user;
+    //echo $user->uid;
+    $type = 'contactinfo';
+    $form_id = $type . '_node_form';
+    $node = new stdClass();
+    $node->uid = $user->uid;
+    $node->type = $type;
+    node_object_prepare($node);
+    $output = drupal_get_form($form_id, $node);
+    return render($output);
+}
+
+/*
+ * Default node form alter hook
+ * You can form CSS/Label as per your need.
+ */
+function contactinfo_form_contactinfo_node_form_alter(&$form, &$form_state, $form_id) {
+    /* $form['field_phone'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Phone Number/Mobile'),
+    '#required' => false,
+      );
+   */
+}
+
+

@@ -1,0 +1,117 @@
+<?php
+/**
+ * @file
+ * An example of calling defualt Node and Block via Module
+ */
+
+/**
+ * Implements hook_field_info().
+ *
+ * Provides the description of the field.
+ */
+function contactinfocustom_info() {
+  return array(
+    // We name our field as the associative name of the array.
+    'contactinfocustom_basic_action' => array(
+      'label' => t('custom form creating using node custominfo'),
+    ),
+  );
+}
+
+function contactinfocustom_menu(){
+    
+     $items = array();     
+    // Will be only used while we are dealing with ready made node form
+    $items['contactinfocustom/test'] = array(
+    'title' => t('Contact Info Custom Form '),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('contactinfocustom_getform'),     
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM
+  ); 
+  return $items;
+    
+}
+
+/*
+ * custom form creation
+ */
+
+function contactinfocustom_getform($form, &$form_state){
+    
+    $form = array();
+    
+    $form['title'] = array(
+        "#title" => t('Name'),
+        "#type" => t('textfield'),
+        '#size' => 20,
+        '#maxlength' => 20,
+        "#required" => TRUE,
+    );
+    
+    $form['field_phone'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Phone Number/Mobile'),
+          '#size' => 20,
+        '#maxlength' => 10,
+    '#required' => false,
+      );
+    
+    $form['body'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Information About You'),
+    '#required' => false,
+      );
+    
+     $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit')
+      );
+    return $form;
+    
+}
+
+function contactinfocustom_getform_validate($form, &$form_state){
+    
+    $values = $form_state['values'];
+    if($values['title'] == 'sandip'){
+         form_set_error('title', t('sandip name will not.'));
+    }
+    
+}
+
+function contactinfocustom_getform_submit($form, &$form_state){
+    
+    global $user;
+    $values = $form_state['values'];
+    $node = new stdClass();
+    $node->type = "contactinfo";
+    node_object_prepare($node);
+    
+    $node->title = $values['title'];
+    $node->uid = $user->uid;
+    $node->status = 1;
+    $node->promote = 0;
+    $node->language = LANGUAGE_NONE;
+    
+    $node->field_phone[$node->language][] = array('value' =>$values['field_phone'] ,);
+    $node->body[$node->language][] = array('value' =>$values['body'] ,);
+      if($node = node_submit($node)){
+          node_save($node);
+          drupal_set_message(t('Contact detail form data has been saved successfully.'));
+          
+       /* $params['puser']['subject'] = t('New Contact entry Found!!!');
+        $params['puser']['message'] = t('Please check the admin panel for contact entry!!!');
+        
+	$params['padmin']['subject'] = t('Thank you for submission!!!');
+	$params['padmin']['message'] = t('Thanks for contacting us');
+	$site_admin = variable_get('site_mail', '');
+					
+	drupal_mail('personal_frm', 'puser', $values['email'], 'EN', $params);
+	drupal_mail('personal_frm', 'auser', $site_admin, 'EN', $params);
+         */ 
+      }
+    
+    
+}
+

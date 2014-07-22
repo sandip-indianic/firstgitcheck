@@ -1,0 +1,1060 @@
+Array
+(
+    [#node_edit_form] => 1
+    [#attributes] => Array
+        (
+            [class] => Array
+                (
+                    [0] => node-form
+                    [1] => node-contactinfo-form
+                )
+
+        )
+
+    [nid] => Array
+        (
+            [#type] => value
+            [#value] => 
+        )
+
+    [vid] => Array
+        (
+            [#type] => value
+            [#value] => 
+        )
+
+    [uid] => Array
+        (
+            [#type] => value
+            [#value] => 1
+        )
+
+    [created] => Array
+        (
+            [#type] => value
+            [#value] => 1404456022
+        )
+
+    [type] => Array
+        (
+            [#type] => value
+            [#value] => contactinfo
+        )
+
+    [language] => Array
+        (
+            [#type] => value
+            [#value] => 
+        )
+
+    [changed] => Array
+        (
+            [#type] => hidden
+            [#default_value] => 
+        )
+
+    [title] => Array
+        (
+            [#type] => textfield
+            [#title] => Title
+            [#required] => 1
+            [#default_value] => 
+            [#maxlength] => 255
+            [#weight] => -5
+        )
+
+    [#node] => stdClass Object
+        (
+            [type] => contactinfo
+            [title] => 
+            [status] => 1
+            [promote] => 1
+            [sticky] => 0
+            [uid] => 1
+            [created] => 1404456022
+            [revision] => 
+            [comment] => 2
+            [menu] => Array
+                (
+                    [link_title] => 
+                    [mlid] => 0
+                    [plid] => 0
+                    [menu_name] => main-menu
+                    [weight] => 0
+                    [options] => Array
+                        (
+                        )
+
+                    [module] => menu
+                    [expanded] => 0
+                    [hidden] => 0
+                    [has_children] => 0
+                    [customized] => 0
+                    [parent_depth_limit] => 8
+                )
+
+        )
+
+    [additional_settings] => Array
+        (
+            [#type] => vertical_tabs
+            [#weight] => 99
+        )
+
+    [revision_information] => Array
+        (
+            [#type] => fieldset
+            [#title] => Revision information
+            [#collapsible] => 1
+            [#collapsed] => 1
+            [#group] => additional_settings
+            [#attributes] => Array
+                (
+                    [class] => Array
+                        (
+                            [0] => node-form-revision-information
+                        )
+
+                )
+
+            [#attached] => Array
+                (
+                    [js] => Array
+                        (
+                            [0] => modules/node/node.js
+                        )
+
+                )
+
+            [#weight] => 20
+            [#access] => 1
+            [revision] => Array
+                (
+                    [#type] => checkbox
+                    [#title] => Create new revision
+                    [#default_value] => 
+                    [#access] => 1
+                    [#states] => Array
+                        (
+                            [checked] => Array
+                                (
+                                    [textarea[name="log"]] => Array
+                                        (
+                                            [empty] => 
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [log] => Array
+                (
+                    [#type] => textarea
+                    [#title] => Revision log message
+                    [#rows] => 4
+                    [#default_value] => 
+                    [#description] => Provide an explanation of the changes you are making. This will help other authors understand your motivations.
+                )
+
+        )
+
+    [author] => Array
+        (
+            [#type] => fieldset
+            [#access] => 1
+            [#title] => Authoring information
+            [#collapsible] => 1
+            [#collapsed] => 1
+            [#group] => additional_settings
+            [#attributes] => Array
+                (
+                    [class] => Array
+                        (
+                            [0] => node-form-author
+                        )
+
+                )
+
+            [#attached] => Array
+                (
+                    [js] => Array
+                        (
+                            [0] => modules/node/node.js
+                            [1] => Array
+                                (
+                                    [type] => setting
+                                    [data] => Array
+                                        (
+                                            [anonymous] => Anonymous
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [#weight] => 90
+            [name] => Array
+                (
+                    [#type] => textfield
+                    [#title] => Authored by
+                    [#maxlength] => 60
+                    [#autocomplete_path] => user/autocomplete
+                    [#default_value] => 
+                    [#weight] => -1
+                    [#description] => Leave blank for Anonymous.
+                )
+
+            [date] => Array
+                (
+                    [#type] => textfield
+                    [#title] => Authored on
+                    [#maxlength] => 25
+                    [#description] => Format: 2014-07-04 12:10:22 +0530. The date format is YYYY-MM-DD and +0530 is the time zone offset from UTC. Leave blank to use the time of form submission.
+                    [#default_value] => 
+                )
+
+        )
+
+    [options] => Array
+        (
+            [#type] => fieldset
+            [#access] => 1
+            [#title] => Publishing options
+            [#collapsible] => 1
+            [#collapsed] => 1
+            [#group] => additional_settings
+            [#attributes] => Array
+                (
+                    [class] => Array
+                        (
+                            [0] => node-form-options
+                        )
+
+                )
+
+            [#attached] => Array
+                (
+                    [js] => Array
+                        (
+                            [0] => modules/node/node.js
+                        )
+
+                )
+
+            [#weight] => 95
+            [status] => Array
+                (
+                    [#type] => checkbox
+                    [#title] => Published
+                    [#default_value] => 1
+                )
+
+            [promote] => Array
+                (
+                    [#type] => checkbox
+                    [#title] => Promoted to front page
+                    [#default_value] => 1
+                )
+
+            [sticky] => Array
+                (
+                    [#type] => checkbox
+                    [#title] => Sticky at top of lists
+                    [#default_value] => 0
+                )
+
+        )
+
+    [actions] => Array
+        (
+            [#type] => actions
+            [submit] => Array
+                (
+                    [#type] => submit
+                    [#access] => 1
+                    [#value] => Save
+                    [#weight] => 5
+                    [#submit] => Array
+                        (
+                            [0] => node_form_submit
+                        )
+
+                )
+
+            [preview] => Array
+                (
+                    [#access] => 1
+                    [#type] => submit
+                    [#value] => Preview
+                    [#weight] => 10
+                    [#submit] => Array
+                        (
+                            [0] => node_form_build_preview
+                        )
+
+                )
+
+        )
+
+    [#validate] => Array
+        (
+            [0] => node_form_validate
+        )
+
+    [#submit] => Array
+        (
+        )
+
+    [#parents] => Array
+        (
+        )
+
+    [#entity] => stdClass Object
+        (
+            [type] => contactinfo
+            [title] => 
+            [status] => 1
+            [promote] => 1
+            [sticky] => 0
+            [uid] => 1
+            [created] => 1404456022
+            [revision] => 
+            [comment] => 2
+            [menu] => Array
+                (
+                    [link_title] => 
+                    [mlid] => 0
+                    [plid] => 0
+                    [menu_name] => main-menu
+                    [weight] => 0
+                    [options] => Array
+                        (
+                        )
+
+                    [module] => menu
+                    [expanded] => 0
+                    [hidden] => 0
+                    [has_children] => 0
+                    [customized] => 0
+                    [parent_depth_limit] => 8
+                )
+
+        )
+
+    [body] => Array
+        (
+            [#type] => container
+            [#attributes] => Array
+                (
+                    [class] => Array
+                        (
+                            [0] => field-type-text-with-summary
+                            [1] => field-name-body
+                            [2] => field-widget-text-textarea-with-summary
+                        )
+
+                )
+
+            [#weight] => 2
+            [#tree] => 1
+            [#language] => und
+            [und] => Array
+                (
+                    [0] => Array
+                        (
+                            [#entity_type] => node
+                            [#entity] => stdClass Object
+                                (
+                                    [type] => contactinfo
+                                    [title] => 
+                                    [status] => 1
+                                    [promote] => 1
+                                    [sticky] => 0
+                                    [uid] => 1
+                                    [created] => 1404456022
+                                    [revision] => 
+                                    [comment] => 2
+                                    [menu] => Array
+                                        (
+                                            [link_title] => 
+                                            [mlid] => 0
+                                            [plid] => 0
+                                            [menu_name] => main-menu
+                                            [weight] => 0
+                                            [options] => Array
+                                                (
+                                                )
+
+                                            [module] => menu
+                                            [expanded] => 0
+                                            [hidden] => 0
+                                            [has_children] => 0
+                                            [customized] => 0
+                                            [parent_depth_limit] => 8
+                                        )
+
+                                )
+
+                            [#bundle] => contactinfo
+                            [#field_name] => body
+                            [#language] => und
+                            [#field_parents] => Array
+                                (
+                                )
+
+                            [#columns] => Array
+                                (
+                                    [0] => value
+                                    [1] => summary
+                                    [2] => format
+                                )
+
+                            [#title] => Information About You
+                            [#description] => Information About You
+                            [#required] => 1
+                            [#delta] => 0
+                            [#weight] => 0
+                            [#type] => text_format
+                            [#default_value] => 
+                            [#rows] => 20
+                            [#attributes] => Array
+                                (
+                                    [class] => Array
+                                        (
+                                            [0] => text-full
+                                        )
+
+                                )
+
+                            [#format] => 
+                            [#base_type] => textarea
+                            [summary] => Array
+                                (
+                                    [#type] => textarea
+                                    [#default_value] => 
+                                    [#title] => Summary
+                                    [#rows] => 5
+                                    [#description] => Leave blank to use trimmed value of full text as the summary.
+                                    [#attached] => Array
+                                        (
+                                            [js] => Array
+                                                (
+                                                    [0] => modules/field/modules/text/text.js
+                                                )
+
+                                        )
+
+                                    [#attributes] => Array
+                                        (
+                                            [class] => Array
+                                                (
+                                                    [0] => text-summary
+                                                )
+
+                                        )
+
+                                    [#prefix] => 
+
+                                    [#suffix] => 
+
+                                    [#weight] => -10
+                                )
+
+                        )
+
+                    [#theme] => field_multiple_value_form
+                    [#field_name] => body
+                    [#cardinality] => 1
+                    [#title] => Information About You
+                    [#required] => 1
+                    [#description] => Information About You
+                    [#prefix] => 
+
+                    [#suffix] => 
+
+                    [#max_delta] => 0
+                    [#after_build] => Array
+                        (
+                            [0] => field_form_element_after_build
+                        )
+
+                    [#language] => und
+                    [#field_parents] => Array
+                        (
+                        )
+
+                )
+
+            [#access] => 1
+        )
+
+    [field_phone] => Array
+        (
+            [#type] => container
+            [#attributes] => Array
+                (
+                    [class] => Array
+                        (
+                            [0] => field-type-number-integer
+                            [1] => field-name-field-phone
+                            [2] => field-widget-number
+                        )
+
+                )
+
+            [#weight] => 1
+            [#tree] => 1
+            [#language] => und
+            [und] => Array
+                (
+                    [0] => Array
+                        (
+                            [value] => Array
+                                (
+                                    [#entity_type] => node
+                                    [#entity] => stdClass Object
+                                        (
+                                            [type] => contactinfo
+                                            [title] => 
+                                            [status] => 1
+                                            [promote] => 1
+                                            [sticky] => 0
+                                            [uid] => 1
+                                            [created] => 1404456022
+                                            [revision] => 
+                                            [comment] => 2
+                                            [menu] => Array
+                                                (
+                                                    [link_title] => 
+                                                    [mlid] => 0
+                                                    [plid] => 0
+                                                    [menu_name] => main-menu
+                                                    [weight] => 0
+                                                    [options] => Array
+                                                        (
+                                                        )
+
+                                                    [module] => menu
+                                                    [expanded] => 0
+                                                    [hidden] => 0
+                                                    [has_children] => 0
+                                                    [customized] => 0
+                                                    [parent_depth_limit] => 8
+                                                )
+
+                                        )
+
+                                    [#bundle] => contactinfo
+                                    [#field_name] => field_phone
+                                    [#language] => und
+                                    [#field_parents] => Array
+                                        (
+                                        )
+
+                                    [#columns] => Array
+                                        (
+                                            [0] => value
+                                        )
+
+                                    [#title] => Phone
+                                    [#description] => 
+                                    [#required] => 
+                                    [#delta] => 0
+                                    [#weight] => 0
+                                    [#type] => textfield
+                                    [#default_value] => 
+                                    [#size] => 12
+                                    [#maxlength] => 10
+                                    [#number_type] => integer
+                                    [#element_validate] => Array
+                                        (
+                                            [0] => number_field_widget_validate
+                                        )
+
+                                )
+
+                        )
+
+                    [#theme] => field_multiple_value_form
+                    [#field_name] => field_phone
+                    [#cardinality] => 1
+                    [#title] => Phone
+                    [#required] => 0
+                    [#description] => 
+                    [#prefix] => 
+
+                    [#suffix] => 
+
+                    [#max_delta] => 0
+                    [#after_build] => Array
+                        (
+                            [0] => field_form_element_after_build
+                        )
+
+                    [#language] => und
+                    [#field_parents] => Array
+                        (
+                        )
+
+                )
+
+            [#access] => 1
+        )
+
+    [#pre_render] => Array
+        (
+            [0] => _field_extra_fields_pre_render
+        )
+
+    [#entity_type] => node
+    [#bundle] => contactinfo
+    [#form_id] => contactinfo_node_form
+    [#type] => form
+    [#build_id] => form-kkcLw1dt9zxiK0zt9gSV4FDsTevMn4AXUuSfJqP0PJc
+    [form_build_id] => Array
+        (
+            [#type] => hidden
+            [#value] => form-kkcLw1dt9zxiK0zt9gSV4FDsTevMn4AXUuSfJqP0PJc
+            [#id] => form-kkcLw1dt9zxiK0zt9gSV4FDsTevMn4AXUuSfJqP0PJc
+            [#name] => form_build_id
+            [#parents] => Array
+                (
+                    [0] => form_build_id
+                )
+
+        )
+
+    [#token] => contactinfo_node_form
+    [form_token] => Array
+        (
+            [#id] => edit-contactinfo-node-form-form-token
+            [#type] => token
+            [#default_value] => 46Yta7-mEuCVMcQGw4ACemT9DcDQf1I2v4SToJV98Bc
+            [#parents] => Array
+                (
+                    [0] => form_token
+                )
+
+        )
+
+    [form_id] => Array
+        (
+            [#type] => hidden
+            [#value] => contactinfo_node_form
+            [#id] => edit-contactinfo-node-form
+            [#parents] => Array
+                (
+                    [0] => form_id
+                )
+
+        )
+
+    [#id] => contactinfo-node-form
+    [#method] => post
+    [#action] => /drupal-72/sandip/sandiptest
+    [#theme_wrappers] => Array
+        (
+            [0] => form
+        )
+
+    [#tree] => 
+    [#theme] => Array
+        (
+            [0] => contactinfo_node_form
+            [1] => node_form
+        )
+
+    [comment_settings] => Array
+        (
+            [#type] => fieldset
+            [#access] => 1
+            [#title] => Comment settings
+            [#collapsible] => 1
+            [#collapsed] => 1
+            [#group] => additional_settings
+            [#attributes] => Array
+                (
+                    [class] => Array
+                        (
+                            [0] => comment-node-settings-form
+                        )
+
+                )
+
+            [#attached] => Array
+                (
+                    [js] => Array
+                        (
+                            [0] => modules/comment/comment-node-form.js
+                        )
+
+                )
+
+            [#weight] => 30
+            [comment] => Array
+                (
+                    [#type] => radios
+                    [#title] => Comments
+                    [#title_display] => invisible
+                    [#parents] => Array
+                        (
+                            [0] => comment
+                        )
+
+                    [#default_value] => 2
+                    [#options] => Array
+                        (
+                            [2] => Open
+                            [1] => Closed
+                            [0] => Hidden
+                        )
+
+                    [2] => Array
+                        (
+                            [#description] => Users with the "Post comments" permission can post comments.
+                        )
+
+                    [1] => Array
+                        (
+                            [#description] => Users cannot post comments.
+                        )
+
+                    [0] => Array
+                        (
+                            [#description] => Comments are hidden from view.
+                            [#access] => 
+                        )
+
+                )
+
+        )
+
+    [menu] => Array
+        (
+            [#type] => fieldset
+            [#title] => Menu settings
+            [#access] => 1
+            [#collapsible] => 1
+            [#collapsed] => 1
+            [#group] => additional_settings
+            [#attached] => Array
+                (
+                    [js] => Array
+                        (
+                            [0] => modules/menu/menu.js
+                        )
+
+                )
+
+            [#tree] => 1
+            [#weight] => -2
+            [#attributes] => Array
+                (
+                    [class] => Array
+                        (
+                            [0] => menu-link-form
+                        )
+
+                )
+
+            [enabled] => Array
+                (
+                    [#type] => checkbox
+                    [#title] => Provide a menu link
+                    [#default_value] => 0
+                )
+
+            [link] => Array
+                (
+                    [#type] => container
+                    [#parents] => Array
+                        (
+                            [0] => menu
+                        )
+
+                    [#states] => Array
+                        (
+                            [invisible] => Array
+                                (
+                                    [input[name="menu[enabled]"]] => Array
+                                        (
+                                            [checked] => 
+                                        )
+
+                                )
+
+                        )
+
+                    [mlid] => Array
+                        (
+                            [#type] => value
+                            [#value] => 0
+                        )
+
+                    [module] => Array
+                        (
+                            [#type] => value
+                            [#value] => menu
+                        )
+
+                    [hidden] => Array
+                        (
+                            [#type] => value
+                            [#value] => 0
+                        )
+
+                    [has_children] => Array
+                        (
+                            [#type] => value
+                            [#value] => 0
+                        )
+
+                    [customized] => Array
+                        (
+                            [#type] => value
+                            [#value] => 0
+                        )
+
+                    [options] => Array
+                        (
+                            [#type] => value
+                            [#value] => Array
+                                (
+                                )
+
+                        )
+
+                    [expanded] => Array
+                        (
+                            [#type] => value
+                            [#value] => 0
+                        )
+
+                    [parent_depth_limit] => Array
+                        (
+                            [#type] => value
+                            [#value] => 8
+                        )
+
+                    [link_title] => Array
+                        (
+                            [#type] => textfield
+                            [#title] => Menu link title
+                            [#default_value] => 
+                        )
+
+                    [description] => Array
+                        (
+                            [#type] => textarea
+                            [#title] => Description
+                            [#default_value] => 
+                            [#rows] => 1
+                            [#description] => Shown when hovering over the menu link.
+                        )
+
+                    [parent] => Array
+                        (
+                            [#type] => select
+                            [#title] => Parent item
+                            [#default_value] => main-menu:0
+                            [#options] => Array
+                                (
+                                    [main-menu:0] => 
+
+                                    [main-menu:218] => -- Home
+                                )
+
+                            [#attributes] => Array
+                                (
+                                    [class] => Array
+                                        (
+                                            [0] => menu-parent-select
+                                        )
+
+                                )
+
+                        )
+
+                    [weight] => Array
+                        (
+                            [#type] => weight
+                            [#title] => Weight
+                            [#delta] => 50
+                            [#default_value] => 0
+                            [#description] => Menu links with smaller weights are displayed before links with larger weights.
+                        )
+
+                )
+
+        )
+
+    [path] => Array
+        (
+            [#type] => fieldset
+            [#title] => URL path settings
+            [#collapsible] => 1
+            [#collapsed] => 1
+            [#group] => additional_settings
+            [#attributes] => Array
+                (
+                    [class] => Array
+                        (
+                            [0] => path-form
+                        )
+
+                )
+
+            [#attached] => Array
+                (
+                    [js] => Array
+                        (
+                            [0] => modules/path/path.js
+                        )
+
+                )
+
+            [#access] => 1
+            [#weight] => 30
+            [#tree] => 1
+            [#element_validate] => Array
+                (
+                    [0] => path_form_element_validate
+                )
+
+            [alias] => Array
+                (
+                    [#type] => textfield
+                    [#title] => URL alias
+                    [#default_value] => 
+                    [#maxlength] => 255
+                    [#description] => Optionally specify an alternative URL by which this content can be accessed. For example, type "about" when writing an about page. Use a relative path and don't add a trailing slash or the URL alias won't work.
+                )
+
+            [pid] => Array
+                (
+                    [#type] => value
+                    [#value] => 
+                )
+
+            [source] => Array
+                (
+                    [#type] => value
+                    [#value] => 
+                )
+
+            [language] => Array
+                (
+                    [#type] => value
+                    [#value] => und
+                )
+
+        )
+
+)
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+      
+    
+    
+    
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+  
+
+      
+
+      Jump to navigation
+    
+
+      
+
+    
+  
+
+    
+Home
+
+    Hello admin
+Log out
+    Administrative toolbarDashboard (View and customize your dashboard.)
+Content (Administer content and comments.)
+Structure (Administer blocks, content types, menus, etc.)
+Appearance (Select and configure your themes.)
+People (Manage user accounts, roles, and permissions.)
+Modules (Extend site functionality.)
+Configuration (Administer settings.)
+Reports (View reports, updates, and errors.)
+Help (Reference for usage, configuration, and modules.)
+          Show shortcuts      
+
+
+  
+
+  
+
+  
+
+
+  
+
+
+    
+          
+                  
+
+            localhost
+          
+
+        
+              
+    
+    
+      
+
+    
